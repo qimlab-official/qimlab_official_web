@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Qim Lab</title>
+    <title>Project Details - Qim Lab</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -25,8 +25,8 @@
 
     <!-- Custom Components -->
     <script src="assets/js/footer-component.js"></script>
-    <script src="assets/js/nexus-bg.js" defer></script>
     <script src="assets/js/projects.js"></script>
+    <script src="assets/js/nexus-bg.js" defer></script>
 
     <script>
         tailwind.config = {
@@ -58,7 +58,6 @@
             /* Changed to transparent to show nexus-bg canvas */
             color: #ffffff;
             cursor: none;
-            /* Hide default cursor */
             overflow-x: hidden;
         }
 
@@ -107,12 +106,7 @@
             text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
         }
 
-        .card-hover:hover {
-            border-color: #00f0ff;
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
-        }
-
-        /* Mobile specific: Show default cursor on touch devices */
+        /* Mobile specific */
         @media (hover: none) and (pointer: coarse) {
             body {
                 cursor: auto;
@@ -191,43 +185,27 @@
 
     <!-- Main Content -->
     <main class="flex-grow pt-20">
-        <section id="projects" class="py-20 relative overflow-hidden min-h-screen">
+        <section class="py-20 relative overflow-hidden min-h-screen">
             <!-- Background Grid -->
-            <!-- Background from nexus-bg.js -->
+            <!-- Background Grid replaced by nexus-bg.js -->
+            <!-- <div class="absolute inset-0 bg-grid-pattern bg-grid opacity-20 pointer-events-none"></div> -->
 
             <div class="container mx-auto px-6 relative z-10">
-                <div class="text-center mb-16">
-                    <h1 class="text-3xl md:text-5xl font-bold mb-4">OUR PROJECTS</h1>
-                    <div class="h-1 w-20 bg-brand-accent mx-auto"></div>
-                    <p class="text-gray-400 mt-6 max-w-2xl mx-auto">
-                        A showcase of our digital solutions, from enterprise networks to custom software applications.
-                    </p>
-                </div>
-
-                <!-- Projects Grid -->
-                <!-- Project Filters -->
-                <div id="project-filters" class="flex flex-wrap justify-center gap-4 mb-12">
-                    <!-- Filters injected by JS -->
-                </div>
-
-                <!-- Projects Grid -->
-                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Projects injected by JS -->
-                </div>
-
-                <!-- CTA -->
-                <div class="mt-20 text-center">
-                    <h2 class="text-2xl font-bold mb-6">HAVE A PROJECT IN MIND?</h2>
-                    <a href="mailto:contact@qimlab.com"
-                        class="hover-trigger inline-block bg-white text-black px-10 py-4 font-bold rounded-full hover:bg-brand-accent transition-colors hover:shadow-[0_0_30px_rgba(0,240,255,0.5)]">
-                        LET'S TALK
+                <div class="max-w-5xl mx-auto">
+                    <!-- Back Button -->
+                    <a href="projects.html"
+                        class="inline-flex items-center gap-2 text-brand-accent hover:text-white transition-colors mb-8 hover-trigger font-mono text-sm uppercase tracking-wider">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Projects
                     </a>
+
+                    <div id="project-content" class="opacity-0 translate-y-4">
+                        <!-- Content injected by JS -->
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <!-- Footer -->
     <global-footer class="text-sm text-gray-500"></global-footer>
 
@@ -247,6 +225,9 @@
                 ease: "power4.inOut",
                 delay: 0.5
             });
+
+            // Render Project Details
+            renderProjectDetails();
         });
 
         // Mobile Menu Logic
@@ -259,11 +240,8 @@
             const isOpen = !mobileMenu.classList.contains("opacity-0");
 
             if (!isOpen) {
-                // Open menu
                 mobileMenu.classList.remove("pointer-events-none", "opacity-0");
-                document.body.style.overflow = "hidden"; // Prevent scrolling
-
-                // Animate links if GSAP is available
+                document.body.style.overflow = "hidden";
                 if (window.gsap) {
                     gsap.fromTo(".mobile-link",
                         { y: 20, opacity: 0 },
@@ -271,16 +249,14 @@
                     );
                 }
             } else {
-                // Close menu
                 mobileMenu.classList.add("pointer-events-none", "opacity-0");
-                document.body.style.overflow = ""; // Restore scrolling
+                document.body.style.overflow = "";
             }
         }
 
         if (mobileMenuBtn) mobileMenuBtn.addEventListener("click", toggleMenu);
         if (closeMenuBtn) closeMenuBtn.addEventListener("click", toggleMenu);
 
-        // Close menu when clicking a link
         mobileLinks.forEach(link => {
             link.addEventListener("click", () => {
                 mobileMenu.classList.add("pointer-events-none", "opacity-0");
@@ -293,16 +269,11 @@
         const cursorOutline = document.querySelector(".cursor-outline");
         const triggers = document.querySelectorAll(".hover-trigger");
 
-        // Movement
         window.addEventListener("mousemove", (e) => {
             const posX = e.clientX;
             const posY = e.clientY;
-
-            // Dot follows instantly
             cursorDot.style.left = `${posX}px`;
             cursorDot.style.top = `${posY}px`;
-
-            // Outline follows with slight delay
             gsap.to(cursorOutline, {
                 x: posX,
                 y: posY,
@@ -311,7 +282,6 @@
             });
         });
 
-        // Hover Effects
         triggers.forEach(trigger => {
             trigger.addEventListener("mouseenter", () => {
                 document.body.classList.add("hovering");
@@ -323,6 +293,138 @@
             });
         });
 
+        // Render Project Details Function
+        function renderProjectDetails() {
+            const params = new URLSearchParams(window.location.search);
+            const projectId = params.get('id');
+            const container = document.getElementById('project-content');
+
+            if (!projectId || !projects) { // projects is global from projects.js
+                container.innerHTML = `
+                    <div class="text-center py-20">
+                        <h2 class="text-3xl font-bold text-gray-400 mb-4">Project Not Found</h2>
+                        <a href="projects.html" class="inline-block px-6 py-2 bg-brand-accent text-black rounded-full font-bold hover:bg-white transition-colors">Return to Showcase</a>
+                    </div>
+                `;
+                gsap.to(container, { opacity: 1, y: 0, duration: 0.5, delay: 0.5 });
+                return;
+            }
+
+            const project = projects.find(p => p.id === projectId);
+
+            if (!project) {
+                container.innerHTML = `
+                    <div class="text-center py-20">
+                        <h2 class="text-3xl font-bold text-gray-400 mb-4">Project Not Found</h2>
+                        <a href="projects.html" class="inline-block px-6 py-2 bg-brand-accent text-black rounded-full font-bold hover:bg-white transition-colors">Return to Showcase</a>
+                    </div>
+                `;
+                gsap.to(container, { opacity: 1, y: 0, duration: 0.5, delay: 0.5 });
+                return;
+            }
+
+            // Update Page Title
+            document.title = `${project.title} - Qim Lab`;
+
+            // Build HTML
+            const html = `
+                <div class="flex flex-col gap-8">
+                    <!-- Header -->
+                    <div class="border-b border-white/10 pb-8">
+                        <div class="flex items-center gap-3 mb-4">
+                             <div class="p-2 rounded-lg bg-white/5 border border-white/10">
+                                <i data-lucide="${project.icon}" class="w-6 h-6 text-brand-accent"></i>
+                             </div>
+                             <span class="text-brand-accent font-mono text-sm uppercase tracking-wider">${project.category}</span>
+                        </div>
+                        <h1 class="text-4xl md:text-6xl font-bold mb-6">${project.title}</h1>
+                        <p class="text-xl text-gray-400 leading-relaxed max-w-3xl">${project.description}</p>
+                    </div>
+
+                    <!-- Main Image -->
+                    <div class="relative aspect-video w-full rounded-2xl overflow-hidden border border-white/10 bg-brand-subtle shadow-2xl shadow-brand-accent/5">
+                        <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover">
+                         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-50"></div>
+                    </div>
+
+                    <!-- Details Grid -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mt-8">
+                        <!-- Main Info -->
+                        <div class="lg:col-span-2 space-y-8">
+                            <div>
+                                <h2 class="text-2xl font-bold mb-4 font-mono flex items-center gap-2">
+                                    <span class="text-brand-accent">/</span> ABOUT PROJECT
+                                </h2>
+                                <p class="text-gray-300 leading-loose text-lg">${project.longDescription || project.description}</p>
+                            </div>
+                            
+                            <!-- Tech Stack -->
+                             <div>
+                                <h2 class="text-2xl font-bold mb-4 font-mono flex items-center gap-2">
+                                    <span class="text-brand-accent">/</span> TECH STACK
+                                </h2>
+                                <div class="flex flex-wrap gap-3">
+                                    ${project.tags.map(tag => `
+                                        <span class="px-4 py-2 bg-brand-subtle border border-white/10 rounded-lg text-sm font-mono text-gray-300 flex items-center gap-2 hover:border-brand-accent/50 hover:text-brand-accent transition-colors cursor-default">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                                            ${tag}
+                                        </span>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sidebar -->
+                        <div class="space-y-8">
+                            <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                                <h3 class="text-lg font-bold mb-6 font-mono text-white">PROJECT LINKS</h3>
+                                <div class="space-y-4">
+                                    ${project.link && project.link !== '#' ? `
+                                        <a href="${project.link}" target="_blank" class="flex items-center justify-between p-4 rounded-xl bg-brand-accent text-black font-bold hover:bg-white transition-all group">
+                                            <span>Visit Live Site</span>
+                                            <i data-lucide="external-link" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                                        </a>
+                                    ` : `
+                                         <button disabled class="w-full flex items-center justify-between p-4 rounded-xl bg-white/5 text-gray-500 font-bold border border-white/5 cursor-not-allowed">
+                                            <span>Live Site (Private)</span>
+                                            <i data-lucide="lock" class="w-5 h-5"></i>
+                                        </button>
+                                    `}
+                                    
+                                    ${project.repo && project.repo !== '#' ? `
+                                        <a href="${project.repo}" target="_blank" class="flex items-center justify-between p-4 rounded-xl border border-white/20 text-white font-bold hover:border-brand-accent hover:text-brand-accent transition-all group bg-black/20">
+                                            <span>View Source Code</span>
+                                            <i data-lucide="github" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                                        </a>
+                                    ` : project.category === 'Infrastructure' ? '' : `
+                                        <button disabled class="w-full flex items-center justify-between p-4 rounded-xl border border-white/10 text-gray-500 font-bold bg-black/20 cursor-not-allowed">
+                                            <span>Source Code (Private)</span>
+                                            <i data-lucide="lock" class="w-5 h-5"></i>
+                                        </button>
+                                    `}
+                                </div>
+                            </div>
+
+                             <div class="p-6 rounded-2xl bg-brand-subtle border border-white/10">
+                                <h3 class="text-lg font-bold mb-4 font-mono text-brand-accent">INTERESTED?</h3>
+                                <p class="text-gray-400 text-sm mb-6">Need a similar solution for your business? Let's discuss how we can help you.</p>
+                                <a href="mailto:contact@qimlab.com" class="inline-flex items-center gap-2 text-white hover:text-brand-accent transition-colors font-bold text-sm tracking-widest hover-trigger">
+                                    START A CONVERSATION <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+
+            // Re-initialize icons
+            lucide.createIcons();
+
+            // Animate content in
+            gsap.to(container, { opacity: 1, y: 0, duration: 0.5, delay: 0.5 });
+        }
 
     </script>
 </body>

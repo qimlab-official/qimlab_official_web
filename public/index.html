@@ -2,663 +2,505 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Qim Lab</title>
-  <meta content="Welcome to Qim Lab. We offers expert website, web application, and mobile application development. We also provide Cloud Infrastructure, IT Consultation, and Training to help your business succeed." name="description">
-  <meta content="application, web, development" name="keywords">
-  <meta name="robots" content="index, follow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qim Lab | Digital Solutions & Network Infrastructure</title>
 
-  <!-- Social Media Tag -->
-  <meta property="og:title" content="Qim Lab">
-  <meta property="og:description" content="Welcome to Qim Lab. We offers expert website, web application, and mobile application development. We also provide Cloud Infrastructure, IT Consultation, and Training to help your business succeed.">
-  <meta property="og:image" content="https://qimlab.my/assets/img/android-chrome-512x512.png">
-  <meta property="og:url" content="https://qimlab.my">
-  <meta property="og:type" content="website">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- GSAP for Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <!-- Custom Components -->
+    <script src="assets/js/footer-component.js"></script>
+    <script src="assets/js/nexus-bg.js" defer></script>
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            accent: '#00f0ff',
+                            dark: '#050505',
+                            surface: '#0a0a0a',
+                            subtle: '#1a1a1a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #1a1a1a 1px, transparent 1px), linear-gradient(to bottom, #1a1a1a 1px, transparent 1px)",
+                    }
+                }
+            }
+        }
+    </script>
 
+    <style>
+        body {
+            background-color: transparent;
+            /* Changed to transparent to show nexus-bg canvas */
+            color: #ffffff;
+            cursor: none;
+            /* Hide default cursor */
+            overflow-x: hidden;
+        }
+
+        /* Custom Cursor Styles */
+        .cursor-dot,
+        .cursor-outline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00f0ff;
+        }
+
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(0, 240, 255, 0.5);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+
+        /* Hover state for cursor */
+        body.hovering .cursor-outline {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(0, 240, 255, 0.1);
+            border-color: #00f0ff;
+        }
+
+        /* Grid Background */
+        .bg-grid {
+            background-size: 40px 40px;
+            mask-image: linear-gradient(to bottom, transparent, 10%, black, 90%, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, 5%, black, 95%, transparent);
+        }
+
+        /* Utilities */
+        .text-glow {
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+        }
+
+        .card-hover:hover {
+            border-color: #00f0ff;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
+        }
+
+        /* Mobile specific: Show default cursor on touch devices */
+        @media (hover: none) and (pointer: coarse) {
+            body {
+                cursor: auto;
+            }
+
+            .cursor-dot,
+            .cursor-outline {
+                display: none;
+            }
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 
-<body class="index-page">
+<body class="antialiased selection:bg-brand-accent selection:text-black">
 
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-       <img src="assets/img/android-chrome-512x512.png" alt=""> 
-        <h1 class="sitename">Qim Lab</h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#main"  >Home</a></li>
-          
-          <li class="dropdown"><a href="#services"><span>Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li class="dropdown"><a href="#services"><span>Development</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="web-development.html">Web Development</a></li>
-                  <li><a href="app-development.html">App Development</a></li>
-                  
-                </ul>
-                <!-- Main CSS File
-              </li>
-               <li class="dropdown"><a href=""><span>Cloud</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="">AWS</a></li>
-                  <li><a href="">Azure</a></li>
-                  <li><a href="">Google Cloud</a></li>
-                </ul>
-              </li>
-              </li>
-               <li class="dropdown"><a href=""><span>Installation</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="">Network</a></li>
-                  <li><a href="">CCTV</a></li>
-                </ul>
-              </li>
-              </li>
-               <li class="dropdown"><a href=""><span>Repair & Maintenance</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="">Electronics</a></li>
-                  <li><a href="">Desktop & Laptop</a></li>
-                </ul>
-              </li>
-               -->
-              <li><a href="workshop-training.html">Workshop & Training</a></li>
-            </ul>
-          </li>
-          <li><a href="projects.html" >Projects</a></li>
-
-          <li><a href="about.html">About</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="text-4xl font-mono font-bold tracking-tighter">
+            <span class="text-brand-accent">&lt;</span>QIM LAB<span class="text-brand-accent">/&gt;</span>
+        </div>
     </div>
-  </header>
 
-  <main class="main">
+    <!-- Custom Cursor Elements -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Navigation -->
+    <nav
+        class="fixed top-0 w-full z-50 mix-blend-difference px-6 py-6 flex justify-between items-center backdrop-blur-sm bg-black/20 border-b border-white/5">
+        <a href="index.html" class="text-2xl font-bold font-mono hover-trigger" data-cursor="link">
+            QIM<span class="text-brand-accent">.</span>LAB
+        </a>
+
+        <div class="hidden md:flex gap-8 text-sm font-medium tracking-widest uppercase">
+            <a href="index.html" class="text-brand-accent transition-colors hover-trigger">Home</a>
+            <a href="#services" class="hover:text-brand-accent transition-colors hover-trigger">Services</a>
+            <a href="about.html" class="hover:text-brand-accent transition-colors hover-trigger">About Us</a>
+            <a href="projects.html" class="hover:text-brand-accent transition-colors hover-trigger">Projects</a>
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden text-white hover-trigger">
+            <i data-lucide="menu"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-black/95 backdrop-blur-xl z-[60] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white hover:text-brand-accent transition-colors">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+
+        <nav class="flex flex-col items-center gap-8 text-2xl font-mono font-bold tracking-widest">
+            <a href="index.html" class="mobile-link text-white hover:text-brand-accent transition-colors">HOME</a>
+            <a href="#services" class="mobile-link text-white hover:text-brand-accent transition-colors">SERVICES</a>
+            <a href="about.html" class="mobile-link text-white hover:text-brand-accent transition-colors">ABOUT US</a>
+            <a href="projects.html"
+                class="mobile-link text-white hover:text-brand-accent transition-colors">PROJECTS</a>
+        </nav>
+    </div>
 
     <!-- Hero Section -->
-    <section id="main" class="hero section">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-7 content-col" data-aos="fade-up">
-            <div class="content">
-              <div class="agency-name">
-  <h5>OUR TECH LAB</h5>
-</div>
-              <div class="main-heading">
-                <h1>DIGITAL & TECH <br>SOLUTIONS</h1>
-              </div>
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Grid -->
+        <!-- Background Grid replaced by nexus-bg.js -->
+        <!-- <div class="absolute inset-0 bg-grid-pattern bg-grid opacity-20 pointer-events-none"></div> -->
 
-              <div class="divider"></div>
-
-              <div class="description">
-                <p>We're dedicated to transforming your ideas into powerful digital realities. We are a full-service tech company specializing in creating bespoke digital solutions</p>
-              </div>
-
-              <div class="cta-button">
-                <a href="#services" class="btn">
-                  <span>EXPLORE SERVICES</span>
-                  <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-5" data-aos="zoom-out">
-            <div class="visual-content">
-              <div class="fluid-shape">
-                <img src="assets/img/abstract/abstract-1.webp" alt="Abstract Fluid Shape" class="fluid-img">
-              </div>
-<!--
-              <div class="stats-card">
-                 /Hero Section
-                <div class="stats-number">
-                  <h2>5K</h2>
-                </div>
-
-                
-                <div class="stats-label">
-                  <p>Grow with us</p>
-                </div>
-                <div class="stats-arrow">
-                  <a href="#portfolio"><i class="bi bi-arrow-up-right"></i></a>
-                </div>
-              </div>
-               -->
-            </div>
-          </div>
+        <!-- Decorative Glow -->
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-accent rounded-full blur-[120px] opacity-10 pointer-events-none">
         </div>
-      </div>
-    </section><!-- /Hero Section -->
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div
+                class="hero-anim mb-4 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-accent/30 bg-brand-accent/5 backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+                <span class="text-xs font-mono text-brand-accent">SYSTEMS ONLINE</span>
+            </div>
+
+            <h1 class="hero-anim text-5xl md:text-8xl font-black tracking-tighter mb-6 leading-tight">
+                ARCHITECTING <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">DIGITAL
+                    REALITY</span>
+            </h1>
+
+            <p class="hero-anim text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
+                Premium Software Development, Network Infrastructure, and Tech Workshops designed for the modern era.
+            </p>
+
+            <div class="hero-anim flex flex-col md:flex-row gap-4 justify-center items-center">
+                <a href="#services"
+                    class="hover-trigger group relative px-8 py-4 bg-brand-accent text-black font-bold tracking-wide overflow-hidden rounded-sm transition-transform hover:scale-105">
+                    <span class="relative z-10">EXPLORE SERVICES</span>
+                    <div
+                        class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    </div>
+                </a>
+                <a href="projects.html"
+                    class="hover-trigger px-8 py-4 border border-white/20 hover:border-brand-accent hover:text-brand-accent transition-colors rounded-sm font-mono text-sm">
+                    VIEW WORK_
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+            <span class="text-[10px] uppercase tracking-[0.2em]">Scroll</span>
+            <div class="w-[1px] h-12 bg-gradient-to-b from-brand-accent to-transparent"></div>
+        </div>
+    </section>
+
     <!-- Services Section -->
-    <section id="services" class="services section">
+    <section id="services" class="py-32 relative">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">OUR EXPERTISE</h2>
+                    <div class="h-1 w-20 bg-brand-accent"></div>
+                </div>
+                <p class="text-gray-400 max-w-md text-right mt-6 md:mt-0 font-mono text-sm">
+                    // DEPLOYING SCALABLE SOLUTIONS<br>
+                    // OPTIMIZING INFRASTRUCTURE
+                </p>
+            </div>
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <div><span>Explore Our</span> <span class="description-title">Services</span></div>
-      </div><!-- End Section Title -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1: Web Development -->
+                <div
+                    class="service-card group hover-trigger p-6 bg-brand-subtle border border-white/5 rounded-2xl transition-all duration-300 card-hover">
+                    <div
+                        class="w-12 h-12 bg-brand-accent/10 rounded-lg flex items-center justify-center text-brand-accent mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="globe" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-brand-accent transition-colors">Web Development
+                    </h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        High-performance websites and web applications tailored to your business needs using modern
+                        frameworks.
+                    </p>
+                    <ul class="text-xs text-gray-500 font-mono space-y-2">
+                        <li class="flex items-center gap-2"><span class="text-brand-accent">></span> Corporate Websites
+                        </li>
+                        <li class="flex items-center gap-2"><span class="text-brand-accent">></span> Landing Page
+                        </li>
+                        <li class="flex items-center gap-2"><span class="text-brand-accent">></span> Custom CMS</li>
+                    </ul>
+                </div>
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <!-- Service 2: App Development -->
+                <div
+                    class="service-card group hover-trigger p-6 bg-brand-subtle border border-white/5 rounded-2xl transition-all duration-300 card-hover">
+                    <div
+                        class="w-12 h-12 bg-brand-accent/10 rounded-lg flex items-center justify-center text-brand-accent mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="smartphone" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-brand-accent transition-colors">App Development
+                    </h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        Native and cross-platform mobile applications that provide seamless user experiences.
+                    </p>
+                    <ul class="text-xs text-gray-500 font-mono space-y-2">
+                        <li class="flex items-center gap-2"><span class="text-brand-accent">></span> iOS & Android</li>
+                        <li class="flex items-center gap-2"><span class="text-brand-accent">></span> Cross-Platform</li>
+                        <li class="flex items-center gap-2"><span class="text-brand-accent">></span> UI/UX Design</li>
+                    </ul>
+                </div>
 
-        
+                <!-- Service 3: Workshop & Training -->
+                <div
+                    class="service-card group hover-trigger p-6 bg-brand-subtle border border-white/5 rounded-2xl transition-all duration-300 card-hover">
+                    <div
+                        class="w-12 h-12 bg-brand-accent/10 rounded-lg flex items-center justify-center text-brand-accent mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-brand-accent transition-colors">Workshop &
+                        Training</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        Empowering teams and individuals with technical skills through hands-on workshops and training.
+                    </p>
+                    <ul class="text-xs text-gray-500 font-mono space-y-2">
+                        <li class="flex items-center gap-2"><span class="text-brand-accent">></span> Dev Workshop
+                        </li>
+                        <li class="flex items-center gap-2"><span class="text-brand-accent">></span> Coding Bootcamps
+                        </li>
+                        <li class="flex items-center gap-2"><span class="text-brand-accent">></span> Skill Upscaling
+                        </li>
+                    </ul>
+                </div>
 
-        <div class="row justify-content-center">
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-card position-relative z-1">
-              <div class="service-icon">
-                <i class="bi bi-code-square"></i>
-              </div>
-              <a href="web-development.html" class="card-action d-flex align-items-center justify-content-center rounded-circle">
-                <i class="bi bi-arrow-up-right"></i>
-              </a>
-              <h3>
-                <a href="web-development.html">
-                  Web <span>Development</span>
-                </a>
-              </h3>
-              <p>
-                End-to-end web development services, from creating a basic website for starters to providing fully managed, scalable web solutions.
-              </p>
+                <!-- Service 4: Network Infra Setup -->
+                <div
+                    class="service-card group hover-trigger p-6 bg-brand-subtle border border-white/5 rounded-2xl transition-all duration-300 card-hover">
+                    <div
+                        class="w-12 h-12 bg-brand-accent/10 rounded-lg flex items-center justify-center text-brand-accent mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="network" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-brand-accent transition-colors">Network Infra
+                        Setup
+                    </h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        Robust network infrastructure solutions to ensure your business operations stay connected 24/7.
+                    </p>
+                    <ul class="text-xs text-gray-500 font-mono space-y-2">
+                        <li class="flex items-center gap-2"><span class="text-brand-accent">></span> Office LAN/WAN</li>
+                        <li class="flex items-center gap-2"><span class="text-brand-accent">></span> Access Point</li>
+                        <li class="flex items-center gap-2"><span class="text-brand-accent">></span> Network Switch
+                        </li>
+                    </ul>
+                </div>
             </div>
-          </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-card position-relative z-1">
-              <div class="service-icon">
-                <i class="bi bi-phone"></i>
-              </div>
-              <a href="app-development.html" class="card-action d-flex align-items-center justify-content-center rounded-circle">
-                <i class="bi bi-arrow-up-right"></i>
-              </a>
-              <h3>
-                <a href="app-development.html">
-                  App <span>Development</span>
-                </a>
-              </h3>
-              <p>
-                Dynamic mobile and web applications, from concept to launch, focusing on user-friendly design and robust functionality to meet your goals.
-              </p>
-            </div>
-          </div>
-          <!-- /Services Section 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-card position-relative z-1">
-              <div class="service-icon">
-                <i class="bi bi-ui-radios-grid"></i>
-              </div>
-              <a href="app-development.html" class="card-action d-flex align-items-center justify-content-center rounded-circle">
-                <i class="bi bi-arrow-up-right"></i>
-              </a>
-              <h3>
-                <a href="app-development.html">
-                  UI/UX <span>Development</span>
-                </a>
-              </h3>
-              <p>
-                Intuitive and beautiful UI/UX designs for all platforms, ensuring your digital products are not only visually appealing but also easy and enjoyable for users to navigate. 
-              </p>
-            </div>
-          </div>
-          -->
-           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-card position-relative z-1">
-              <div class="service-icon">
-                <i class="bi bi-person-workspace"></i>
-              </div>
-              <a href="workshop-training.html" class="card-action d-flex align-items-center justify-content-center rounded-circle">
-                <i class="bi bi-arrow-up-right"></i>
-              </a>
-              <h3>
-                <a href="workshop-training.html">
-                  Workshop <span>and Training</span>
-                </a>
-              </h3>
-              <p>
-                Hands-on workshops web, mobile, and AI development, empowering your team with the latest skills and knowledge to drive innovation.
-              </p>
-            </div>
-          </div>
-           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-card position-relative z-1">
-              <div class="service-icon">
-                <i class="bi bi-arrow-up-right-square"></i>
-              </div>
-              <a href="#" class="card-action d-flex align-items-center justify-content-center rounded-circle">
-                <i class="bi bi-arrow-up-right"></i>
-              </a>
-              <h3>
-                <a href="#">
-                  Coming Soon!<span></span>
-                </a>
-              </h3>
-              <p>
-                Expanding our services to include UI/UX Development, Network (SD-WAN) & CCTV installation, electronic repairs, and comprehensive Cloud Infrastructure solutions on AWS, Azure, and Google Cloud.
-              </p>
-            </div>
-          </div>
-          <!-- Fonts
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-card position-relative z-1">
-              <div class="service-icon">
-                <i class="bi bi-cloud"></i>
-              </div>
-              <a href="service-details.html" class="card-action d-flex align-items-center justify-content-center rounded-circle">
-                <i class="bi bi-arrow-up-right"></i>
-              </a>
-              <h3>
-                <a href="service-details.html">
-                  Cloud <span>Services</span>
-                </a>
-              </h3>
-              <p>
-                Cras fermentum odio eu feugiat malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et accumsan cursus. Morbi placerat nulla vel nunc viverra accumsan.
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-card position-relative z-1">
-              <div class="service-icon">
-                <i class="bi bi-hdd-network"></i>
-              </div>
-              <a href="service-details.html" class="card-action d-flex align-items-center justify-content-center rounded-circle">
-                <i class="bi bi-arrow-up-right"></i>
-              </a>
-              <h3>
-                <a href="service-details.html">
-                  Network & CCTV <span>Installation</span>
-                </a>
-              </h3>
-              <p>
-                Aenean vel augue vel nisi bibendum posuere. Phasellus in lacus quis urna sodales dignissim. Duis aliquam libero eget risus facilisis. Quisque eget libero vel nisl fringilla.
-              </p>
-            </div>
-          </div>
-           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-card position-relative z-1">
-              <div class="service-icon">
-                <i class="bi bi-tools"></i>
-              </div>
-              <a href="service-details.html" class="card-action d-flex align-items-center justify-content-center rounded-circle">
-                <i class="bi bi-arrow-up-right"></i>
-              </a>
-              <h3>
-                <a href="service-details.html">
-                  Electronics <span>Repair</span>
-                </a>
-              </h3>
-              <p>
-                Aenean vel augue vel nisi bibendum posuere. Phasellus in lacus quis urna sodales dignissim. Duis aliquam libero eget risus facilisis. Quisque eget libero vel nisl fringilla.
-              </p>
-            </div>
-          </div>
-           -->
-          
         </div>
+    </section>
 
-      </div>
 
-    </section><!-- /Services Section -->
 
-    <!-- About Section -->
-    <section id="main" class="about section">
+    <!-- CTA / Footer -->
+    <!-- Footer -->
+    <!-- CTA / Footer -->
+    <!-- Footer -->
+    <global-footer class="text-sm text-gray-500"></global-footer>
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <div><span>Why Choose</span> <span class="description-title">Us</span></div>
-      </div><!-- End Section Title -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Initialize Icons
+            if (window.lucide) {
+                try {
+                    lucide.createIcons();
+                } catch (e) {
+                    console.error("Lucide icons failed:", e);
+                }
+            }
 
-      <div class="container">
+            // Fallback for preloader
+            const removePreloader = () => {
+                const preloader = document.querySelector(".preloader");
+                if (preloader) {
+                    gsap.to(preloader, {
+                        y: "-100%",
+                        duration: 0.8,
+                        ease: "power4.inOut"
+                    });
+                }
+            };
 
-        <div class="row gx-5 align-items-center">
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
-            <div class="about-image position-relative">
-              <img src="assets/img/about/about-portrait-1.webp" class="img-fluid rounded-4 shadow-sm" alt="About Image" loading="lazy">
-              <div class="experience-badge">
-                <span class="years"></span>
-                <span class="text"></span>
-              </div>
-            </div>
-          </div>
+            // GSAP Logic
+            if (window.gsap && window.ScrollTrigger) {
+                gsap.registerPlugin(ScrollTrigger);
 
-          <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-left" data-aos-delay="300">
-            <div class="about-content">
-              <h2>Elevating Business Performance Through Innovation</h2>
-              <p class="lead">We focus on crafting bespoke strategies that navigate complexity and deliver tangible results for our clients.</p>
-              <p>Through a blend of sophisticated analytics and creative problem-solving, we empower organizations to thrive in rapidly evolving markets.</p>
-
-              <div class="row g-4 mt-3">
-                <div class="col-md-6" data-aos="zoom-in" data-aos-delay="400">
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle-fill"></i>
-                    <h5>Dedicated Team Support</h5>
-                    <p>Our highly skilled professionals are committed to providing personalized service and impactful solutions on every engagement.</p>
-                  </div>
-                </div>
-                <div class="col-md-6" data-aos="zoom-in" data-aos-delay="450">
-                  <div class="feature-item">
-                    <i class="bi bi-lightbulb-fill"></i>
-                    <h5>Forward-Thinking Approach</h5>
-                    <p>We embrace innovative methodologies to develop unique strategies that drive lasting success.</p>
-                  </div>
-                </div>
-              </div>
-
-              <a href="#services" class="btn btn-primary mt-4">Explore Our Services</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-section mt-5 pt-5" data-aos="fade-up" data-aos-delay="100">
-          <div class="row">
-            <div class="col-lg-4" data-aos="fade-right" data-aos-delay="200">
-              <div class="testimonial-intro">
-                <h3>Our Clients Speak Highly</h3>
-                <p>Hear directly from those who have experienced the impact of our partnership and achieved their strategic goals.</p>
-                <div class="swiper-nav-buttons mt-4">
-                  <button class="slider-prev"><i class="bi bi-arrow-left"></i></button>
-                  <button class="slider-next"><i class="bi bi-arrow-right"></i></button>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-8" data-aos="fade-left" data-aos-delay="300">
-              <div class="testimonial-slider swiper init-swiper">
-                <script type="application/json" class="swiper-config">
-                  {
-                    "loop": true,
-                    "speed": 800,
-                    "autoplay": {
-                      "delay": 5000
-                    },
-                    "slidesPerView": 1,
-                    "spaceBetween": 30,
-                    "navigation": {
-                      "nextEl": ".slider-next",
-                      "prevEl": ".slider-prev"
-                    },
-                    "breakpoints": {
-                      "768": {
-                        "slidesPerView": 2
-                      }
+                // Preloader Animation
+                const tl = gsap.timeline();
+                // Ensure preloader removal happens
+                tl.to(".preloader", {
+                    y: "-100%",
+                    duration: 0.8,
+                    ease: "power4.inOut",
+                    delay: 0.2, // Reduced delay
+                    onComplete: () => {
+                        document.querySelector(".preloader").style.display = "none";
                     }
-                  }
-                </script>
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="testimonial-item">
-                      <div class="rating mb-3">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                      </div>
-                      <p>"Their strategic vision and unwavering commitment to results provided exceptional value. Our operational efficiency has signficantly improved."</p>
-                      <div class="client-info d-flex align-items-center mt-4">
-                        <img src="assets/img/home/client-postalhub.webp" class="client-img" alt="Client" loading="lazy">
-                        <div>
-                          <h6 class="mb-0">Campus Postal Hub</h6>
-                          <span>Organizations</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="testimonial-item">
-                      <div class="rating mb-3">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                      </div>
-                      <p>"Their strategic vision and unwavering commitment to results provided exceptional value. Our operational efficiency has signficantly improved."</p>
-                      <div class="client-info d-flex align-items-center mt-4">
-                        <img src="assets/img/home/client-pengembaranomad.webp" class="client-img" alt="Client" loading="lazy">
-                        <div>
-                          <h6 class="mb-0">Fara Azwa</h6>
-                          <span>Founder, Pengembara Nomad</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="testimonial-item">
-                      <div class="rating mb-3">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                      </div>
-                      <p>"Their strategic vision and unwavering commitment to results provided exceptional value. Our operational efficiency has signficantly improved."</p>
-                      <div class="client-info d-flex align-items-center mt-4">
-                        <img src="assets/img/about/team-unknown.webp" class="client-img" alt="Client" loading="lazy">
-                        <div>
-                          <h6 class="mb-0">Pn. Lia</h6>
-                          <span>Staff, SMKSAAS</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                });
 
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                // Start hero animations
+                tl.from(".hero-anim", {
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
+                    stagger: 0.1,
+                    ease: "power3.out"
+                }, "-=0.4");
 
-      </div>
+                // Scroll Animations - Services (Removed to prevent stuck state)
+                // Service cards will be visible by default
+            } else {
+                // If GSAP fails, remove preloader manually
+                const preloader = document.querySelector(".preloader");
+                if (preloader) preloader.style.display = "none";
+            }
 
-    </section><!-- /About Section -->
+            // Mobile Menu Logic
+            const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+            const closeMenuBtn = document.getElementById("close-menu-btn");
+            const mobileMenu = document.getElementById("mobile-menu");
+            const mobileLinks = document.querySelectorAll(".mobile-link");
 
-    
+            function toggleMenu() {
+                const isOpen = !mobileMenu.classList.contains("opacity-0");
 
-    <!-- Steps Section -->
-    <section id="steps" class="steps section">
+                if (!isOpen) {
+                    // Open menu
+                    mobileMenu.classList.remove("pointer-events-none", "opacity-0");
+                    document.body.style.overflow = "hidden"; // Prevent scrolling
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Steps</h2>
-        <div><span>How we</span> <span class="description-title">Work</span></div>
-      </div><!-- End Section Title -->
+                    // Animate links if GSAP is available
+                    if (window.gsap) {
+                        gsap.fromTo(".mobile-link",
+                            { y: 20, opacity: 0 },
+                            { y: 0, opacity: 1, duration: 0.4, stagger: 0.1, delay: 0.1 }
+                        );
+                    }
+                } else {
+                    // Close menu
+                    mobileMenu.classList.add("pointer-events-none", "opacity-0");
+                    document.body.style.overflow = ""; // Restore scrolling
+                }
+            }
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+            if (mobileMenuBtn) mobileMenuBtn.addEventListener("click", toggleMenu);
+            if (closeMenuBtn) closeMenuBtn.addEventListener("click", toggleMenu);
 
-        <div class="steps-wrapper">
+            // Close menu when clicking a link
+            mobileLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    mobileMenu.classList.add("pointer-events-none", "opacity-0");
+                    document.body.style.overflow = "";
+                });
+            });
 
-          <div class="step-item" data-aos="fade-right" data-aos-delay="200">
-            <div class="step-content">
-              <div class="step-icon">
-                <i class="bi bi-lightbulb"></i>
-              </div>
-              <div class="step-info">
-                <span class="step-number">Step 01</span>
-                <h3>Initial Consultation</h3>
-                <p>Conducting thorough discovery sessions to understand your business requirements and objectives. Our expert team analyzes your needs to create a customized approach.</p>
-              </div>
-            </div>
-          </div><!-- End Step Item -->
+            // Custom Cursor Logic
+            const cursorDot = document.querySelector(".cursor-dot");
+            const cursorOutline = document.querySelector(".cursor-outline");
+            const isDesktop = window.matchMedia("(pointer: fine)").matches;
 
-          <div class="step-item" data-aos="fade-left" data-aos-delay="300">
-            <div class="step-content">
-              <div class="step-icon">
-                <i class="bi bi-gear"></i>
-              </div>
-              <div class="step-info">
-                <span class="step-number">Step 02</span>
-                <h3>Planning &amp; Strategy</h3>
-                <p>Developing comprehensive strategies and detailed project plans based on the initial consultation. We create actionable roadmaps with clear milestones and deliverables.</p>
-              </div>
-            </div>
-          </div><!-- End Step Item -->
+            if (isDesktop && cursorDot && cursorOutline) {
+                window.addEventListener("mousemove", (e) => {
+                    const posX = e.clientX;
+                    const posY = e.clientY;
 
-          <div class="step-item" data-aos="fade-right" data-aos-delay="400">
-            <div class="step-content">
-              <div class="step-icon">
-                <i class="bi bi-bar-chart"></i>
-              </div>
-              <div class="step-info">
-                <span class="step-number">Step 03</span>
-                <h3>Development Phase</h3>
-                <p>Executing the planned strategies with precision and agility. Our team implements solutions while maintaining constant communication and progress updates.</p>
-              </div>
-            </div>
-          </div><!-- End Step Item -->
+                    // Dot follows instantly
+                    cursorDot.style.left = `${posX}px`;
+                    cursorDot.style.top = `${posY}px`;
 
-          <div class="step-item" data-aos="fade-left" data-aos-delay="500">
-            <div class="step-content">
-              <div class="step-icon">
-                <i class="bi bi-check2-circle"></i>
-              </div>
-              <div class="step-info">
-                <span class="step-number">Step 04</span>
-                <h3>Launch &amp; Support</h3>
-                <p>Ensuring smooth deployment and providing ongoing support for implemented solutions. We monitor performance and make necessary adjustments for optimal results.</p>
-              </div>
-            </div>
-          </div><!-- End Step Item -->
+                    // Outline follows with delay
+                    if (window.gsap) {
+                        gsap.to(cursorOutline, {
+                            x: posX,
+                            y: posY,
+                            duration: 0.15,
+                            ease: "power2.out"
+                        });
+                    } else {
+                        cursorOutline.style.left = `${posX}px`;
+                        cursorOutline.style.top = `${posY}px`;
+                    }
+                });
+            }
 
-        </div>
+            // Hover Effects
+            const triggers = document.querySelectorAll(".hover-trigger");
+            triggers.forEach(trigger => {
+                trigger.addEventListener("mouseenter", () => {
+                    document.body.classList.add("hovering");
+                    if (window.gsap) gsap.to(trigger, { scale: 1.05, duration: 0.3 });
+                });
+                trigger.addEventListener("mouseleave", () => {
+                    document.body.classList.remove("hovering");
+                    if (window.gsap) gsap.to(trigger, { scale: 1, duration: 0.3 });
+                });
+            });
 
-      </div>
+            // Force remove preloader after 5 seconds just in case
+            setTimeout(() => {
+                const preloader = document.querySelector(".preloader");
+                if (preloader && getComputedStyle(preloader).display !== "none") {
+                    preloader.style.display = "none";
+                }
+            }, 5000);
+        });
 
-    </section><!-- /Steps Section -->
-
-    
-
-    <!-- Faq Section -->
-    <section class="faq-9 faq section" id="faq">
-
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-5" data-aos="fade-up">
-            <h2 class="faq-title">Have a question? Check out the FAQ</h2>
-            <p class="faq-description">Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet adipiscing sem neque sed ipsum.</p>
-            <div class="faq-arrow d-none d-lg-block" data-aos="fade-up" data-aos-delay="200">
-              <svg class="faq-arrow" width="200" height="211" viewBox="0 0 200 211" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M198.804 194.488C189.279 189.596 179.529 185.52 169.407 182.07L169.384 182.049C169.227 181.994 169.07 181.939 168.912 181.884C166.669 181.139 165.906 184.546 167.669 185.615C174.053 189.473 182.761 191.837 189.146 195.695C156.603 195.912 119.781 196.591 91.266 179.049C62.5221 161.368 48.1094 130.695 56.934 98.891C84.5539 98.7247 112.556 84.0176 129.508 62.667C136.396 53.9724 146.193 35.1448 129.773 30.2717C114.292 25.6624 93.7109 41.8875 83.1971 51.3147C70.1109 63.039 59.63 78.433 54.2039 95.0087C52.1221 94.9842 50.0776 94.8683 48.0703 94.6608C30.1803 92.8027 11.2197 83.6338 5.44902 65.1074C-1.88449 41.5699 14.4994 19.0183 27.9202 1.56641C28.6411 0.625793 27.2862 -0.561638 26.5419 0.358501C13.4588 16.4098 -0.221091 34.5242 0.896608 56.5659C1.8218 74.6941 14.221 87.9401 30.4121 94.2058C37.7076 97.0203 45.3454 98.5003 53.0334 98.8449C47.8679 117.532 49.2961 137.487 60.7729 155.283C87.7615 197.081 139.616 201.147 184.786 201.155L174.332 206.827C172.119 208.033 174.345 211.287 176.537 210.105C182.06 207.125 187.582 204.122 193.084 201.144C193.346 201.147 195.161 199.887 195.423 199.868C197.08 198.548 193.084 201.144 195.528 199.81C196.688 199.192 197.846 198.552 199.006 197.935C200.397 197.167 200.007 195.087 198.804 194.488ZM60.8213 88.0427C67.6894 72.648 78.8538 59.1566 92.1207 49.0388C98.8475 43.9065 106.334 39.2953 114.188 36.1439C117.295 34.8947 120.798 33.6609 124.168 33.635C134.365 33.5511 136.354 42.9911 132.638 51.031C120.47 77.4222 86.8639 93.9837 58.0983 94.9666C58.8971 92.6666 59.783 90.3603 60.8213 88.0427Z" fill="currentColor"></path>
-              </svg>
-            </div>
-          </div>
-
-          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="300">
-            <div class="faq-container">
-
-              
-
-              <div class="faq-item">
-                <h3>What is your development process like?</h3>
-                <div class="faq-content">
-                  <p>Our development process is collaborative and transparent. We start with a consultation to understand your business goals and technical requirements. Then, we move into the design and planning phase, followed by agile development and testing. Throughout the project, we maintain open communication and provide regular updates to ensure the final product meets your expectations and is delivered on time.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3>How do you handle project pricing?</h3>
-                <div class="faq-content">
-                  <p>We offer flexible pricing models tailored to the unique needs of each project. Depending on the scope, we can work with a fixed-price model for well-defined projects or a time and materials model for more complex or evolving projects. We provide a detailed quote after the initial consultation, ensuring there are no surprises.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3>Can you help my business with its existing IT infrastructure?</h3>
-                <div class="faq-content">
-                  <p>Absolutely. Our expertise isn't limited to new projects. We can assess your current IT and network infrastructure, providing consultation and support to optimize performance, enhance security, and integrate new solutions. Whether it's upgrading your Cloud infrastructure or improving your Network system, we can provide the right solution.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3>Do you offer post-launch support and maintenance?</h3>
-                <div class="faq-content">
-                  <p>Absolutely. Our relationship doesn't end after the project is launched. We provide ongoing support and maintenance services to ensure your website, web app, or mobile app continues to run smoothly and securely. This can include regular updates, bug fixes, performance monitoring, and security enhancements to keep your digital assets in top condition through Managed Development.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3>How do your training and workshops work?</h3>
-                <div class="faq-content">
-                  <p>We provide comprehensive training and workshops designed to help individuals and organizations master new technologies, software, or platforms. And there are structured to cater to various groups, including schools, colleges, businesses, and communities. We offer structured programs that empower participants with the practical skills needed to stay competitive and innovative in today's digital landscape.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-               <div class="faq-item">
-                <h3>Do you offer collaboration or sponsorship programs?</h3>
-                <div class="faq-content">
-                  <p>Yes, we do! We believe in giving back to the community and fostering innovation. We offer sponsorship programs where we provide our resources, such as development services, workshop or training, to support promising projects, startups, or community initiatives. If you have an idea or a project you believe we can contribute to, please reach out to us to discuss a potential collaboration.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section><!-- /Faq Section -->
-
-   
-
-  </main>
-
-  <div id="footer"></div>
-
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-  <script>
-  fetch("object/footer.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("footer").innerHTML = data;
-    })
-    .catch(error => console.error("Error loading footer:", error));
-  </script>
-
+        // Ensure animations trigger on full load as well
+        window.addEventListener("load", () => {
+            if (window.ScrollTrigger) {
+                ScrollTrigger.refresh();
+            }
+        });
+    </script>
 </body>
 
 </html>
