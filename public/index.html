@@ -26,6 +26,7 @@
     <!-- Custom Components -->
     <script src="assets/js/footer-component.js"></script>
     <script src="assets/js/nexus-bg.js" defer></script>
+    <script src="assets/js/testimonials.js" defer></script>
 
     <script>
         tailwind.config = {
@@ -212,7 +213,8 @@
             </h1>
 
             <p class="hero-anim text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
-                Premium Software Development, Network Infrastructure, and Tech Workshops designed for the modern era.
+                Premium Software Development, Network Infrastructure to transform your ideas into powerful digital
+                realities.
             </p>
 
             <div class="hero-anim flex flex-col md:flex-row gap-4 justify-center items-center">
@@ -341,9 +343,351 @@
 
 
 
-    <!-- CTA / Footer -->
-    <!-- Footer -->
-    <!-- CTA / Footer -->
+    <!-- Why Choose Us -->
+    <section class="py-24 relative border-y border-white/5 bg-black/40 backdrop-blur-sm">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 relative">
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-brand-accent/5 rounded-full blur-3xl -z-10">
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight">WHY CHOOSE US</h2>
+                <div class="h-1 w-20 bg-brand-accent mx-auto"></div>
+                <p class="text-gray-400 mt-6 max-w-2xl mx-auto text-sm font-mono uppercase tracking-widest">
+                    // EXCELLENCE IN EVERY LINE OF CODE
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div
+                    class="text-center group p-8 rounded-2xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-brand-accent/20 relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-brand-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+
+                    <div class="relative z-10">
+                        <div
+                            class="w-20 h-20 mx-auto bg-brand-subtle rounded-full flex items-center justify-center text-brand-accent mb-6 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_20px_rgba(0,240,255,0.1)] group-hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] border border-white/5 group-hover:border-brand-accent/50">
+                            <i data-lucide="zap" class="w-10 h-10"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-brand-accent transition-colors">
+                            Lightning Fast</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed px-4">
+                            Optimized performance is at the core of everything we build. We ensure your digital products
+                            load instantly and run smoothly.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div
+                    class="text-center group p-8 rounded-2xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-brand-accent/20 relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-brand-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+
+                    <div class="relative z-10">
+                        <div
+                            class="w-20 h-20 mx-auto bg-brand-subtle rounded-full flex items-center justify-center text-brand-accent mb-6 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_20px_rgba(0,240,255,0.1)] group-hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] border border-white/5 group-hover:border-brand-accent/50">
+                            <i data-lucide="shield-check" class="w-10 h-10"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-brand-accent transition-colors">
+                            Secure & Reliable</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed px-4">
+                            Security first approach. We implement industry-standard encryption and robust architecture
+                            to protect your critical business data.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div
+                    class="text-center group p-8 rounded-2xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-brand-accent/20 relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-brand-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+
+                    <div class="relative z-10">
+                        <div
+                            class="w-20 h-20 mx-auto bg-brand-subtle rounded-full flex items-center justify-center text-brand-accent mb-6 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_20px_rgba(0,240,255,0.1)] group-hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] border border-white/5 group-hover:border-brand-accent/50">
+                            <i data-lucide="users" class="w-10 h-10"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-brand-accent transition-colors">
+                            Client-Centric</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed px-4">
+                            Transparent communication is key. We work closely with you to bring your vision to life,
+                            exactly as you imagined it.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-32 relative overflow-hidden bg-gradient-to-b from-transparent to-black/40">
+        <!-- Glow Effect -->
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-brand-accent/5 rounded-full blur-[100px] pointer-events-none">
+        </div>
+
+        <div class="container mx-auto px-6 mb-16 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">TESTIMONIALS</h2>
+                    <div class="h-1 w-20 bg-brand-accent"></div>
+                </div>
+                <p class="text-gray-400 max-w-md text-right mt-6 md:mt-0 font-mono text-sm uppercase tracking-widest">
+                    // CLIENT SUCCESS STORIES<br>
+                    // TRUSTED PARTNERSHIPS
+                </p>
+            </div>
+        </div>
+
+        <!-- Carousel Wrapper -->
+        <div id="testimonial-wrapper" class="relative w-full overflow-hidden py-10 cursor-ew-resize group">
+            <!-- Fade edges -->
+            <div
+                class="absolute left-0 top-0 bottom-0 w-20 md:w-40 z-20 bg-gradient-to-r from-[#050505] to-transparent pointer-events-none">
+            </div>
+            <div
+                class="absolute right-0 top-0 bottom-0 w-20 md:w-40 z-20 bg-gradient-to-l from-[#050505] to-transparent pointer-events-none">
+            </div>
+
+            <!-- Track -->
+            <div id="testimonial-track" class="flex w-max items-stretch relative z-10">
+                <!-- Javascript will inject items here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Work Section -->
+    <section id="how-we-work" class="py-32 relative">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">HOW WE WORK</h2>
+                    <div class="h-1 w-20 bg-brand-accent"></div>
+                </div>
+                <p class="text-gray-400 max-w-md text-right mt-6 md:mt-0 font-mono text-sm">
+                    // PROCESS FLOW<br>
+                    // SYSTEMATIC EXECUTION
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Step 01 -->
+                <div
+                    class="group hover-trigger p-6 bg-brand-subtle border border-white/5 rounded-2xl transition-all duration-300 card-hover relative overflow-hidden">
+                    <div
+                        class="absolute top-4 right-6 text-5xl font-mono font-bold text-white/5 group-hover:text-brand-accent/20 transition-colors select-none">
+                        01</div>
+                    <div class="relative z-10 mt-4">
+                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-brand-accent transition-colors">
+                            Initial Consultation</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            We discuss your goals, requirements, and vision to understand your project needs.
+                        </p>
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 h-1 w-0 bg-brand-accent transition-all duration-500 group-hover:w-full">
+                    </div>
+                </div>
+
+                <!-- Step 02 -->
+                <div
+                    class="group hover-trigger p-6 bg-brand-subtle border border-white/5 rounded-2xl transition-all duration-300 card-hover relative overflow-hidden">
+                    <div
+                        class="absolute top-4 right-6 text-5xl font-mono font-bold text-white/5 group-hover:text-brand-accent/20 transition-colors select-none">
+                        02</div>
+                    <div class="relative z-10 mt-4">
+                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-brand-accent transition-colors">
+                            Planning & Strategy</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            We create a detailed roadmap, architecture, and design plan for approval.
+                        </p>
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 h-1 w-0 bg-brand-accent transition-all duration-500 group-hover:w-full">
+                    </div>
+                </div>
+
+                <!-- Step 03 -->
+                <div
+                    class="group hover-trigger p-6 bg-brand-subtle border border-white/5 rounded-2xl transition-all duration-300 card-hover relative overflow-hidden">
+                    <div
+                        class="absolute top-4 right-6 text-5xl font-mono font-bold text-white/5 group-hover:text-brand-accent/20 transition-colors select-none">
+                        03</div>
+                    <div class="relative z-10 mt-4">
+                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-brand-accent transition-colors">
+                            Development Phase</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Our team builds your solution using the latest technologies and best practices.
+                        </p>
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 h-1 w-0 bg-brand-accent transition-all duration-500 group-hover:w-full">
+                    </div>
+                </div>
+
+                <!-- Step 04 -->
+                <div
+                    class="group hover-trigger p-6 bg-brand-subtle border border-white/5 rounded-2xl transition-all duration-300 card-hover relative overflow-hidden">
+                    <div
+                        class="absolute top-4 right-6 text-5xl font-mono font-bold text-white/5 group-hover:text-brand-accent/20 transition-colors select-none">
+                        04</div>
+                    <div class="relative z-10 mt-4">
+                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-brand-accent transition-colors">
+                            Launch & Support</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            We deploy your project and provide ongoing support to ensure smooth operation.
+                        </p>
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 h-1 w-0 bg-brand-accent transition-all duration-500 group-hover:w-full">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-32 relative bg-black/20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">FAQs</h2>
+                    <div class="h-1 w-20 bg-brand-accent"></div>
+                </div>
+                <p class="text-gray-400 max-w-md text-right mt-6 md:mt-0 font-mono text-sm">
+                    // COMMON QUESTIONS<br>
+                    // CLARIFICATIONS
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- FAQ Item 1 -->
+                <div
+                    class="faq-item group bg-brand-subtle border border-white/5 rounded-2xl overflow-hidden transition-all duration-300 hover:border-brand-accent/30">
+                    <button
+                        class="faq-trigger w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="text-lg font-bold text-white group-hover:text-brand-accent transition-colors">What
+                            services does Qim Lab provide?</span>
+                        <div class="relative w-6 h-6 flex items-center justify-center">
+                            <i data-lucide="plus"
+                                class="faq-icon w-5 h-5 text-gray-400 transition-transform duration-300 ease-in-out group-hover:text-brand-accent"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content grid grid-rows-[0fr] transition-all duration-300 ease-in-out">
+                        <div class="overflow-hidden">
+                            <div
+                                class="p-6 pt-0 text-gray-400 text-sm leading-relaxed border-t border-white/5 mx-6 mt-2">
+                                <p>We specialize in high-performance Web Development, Mobile App Development, Network
+                                    Infrastructure Setup, and Technical Workshops & Training for individuals and
+                                    corporate teams.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div
+                    class="faq-item group bg-brand-subtle border border-white/5 rounded-2xl overflow-hidden transition-all duration-300 hover:border-brand-accent/30">
+                    <button
+                        class="faq-trigger w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="text-lg font-bold text-white group-hover:text-brand-accent transition-colors">How
+                            does the project development process work?</span>
+                        <div class="relative w-6 h-6 flex items-center justify-center">
+                            <i data-lucide="plus"
+                                class="faq-icon w-5 h-5 text-gray-400 transition-transform duration-300 ease-in-out group-hover:text-brand-accent"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content grid grid-rows-[0fr] transition-all duration-300 ease-in-out">
+                        <div class="overflow-hidden">
+                            <div
+                                class="p-6 pt-0 text-gray-400 text-sm leading-relaxed border-t border-white/5 mx-6 mt-2">
+                                <p>Our process is systematic: Initial Consultation, Planning & Strategy, Development,
+                                    and finally Launch & Support. Timelines vary by complexity, but we ensure
+                                    transparency and regular updates throughout.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div
+                    class="faq-item group bg-brand-subtle border border-white/5 rounded-2xl overflow-hidden transition-all duration-300 hover:border-brand-accent/30">
+                    <button
+                        class="faq-trigger w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="text-lg font-bold text-white group-hover:text-brand-accent transition-colors">Do
+                            you offer post-launch maintenance and support?</span>
+                        <div class="relative w-6 h-6 flex items-center justify-center">
+                            <i data-lucide="plus"
+                                class="faq-icon w-5 h-5 text-gray-400 transition-transform duration-300 ease-in-out group-hover:text-brand-accent"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content grid grid-rows-[0fr] transition-all duration-300 ease-in-out">
+                        <div class="overflow-hidden">
+                            <div
+                                class="p-6 pt-0 text-gray-400 text-sm leading-relaxed border-t border-white/5 mx-6 mt-2">
+                                <p>Yes, we offer comprehensive maintenance packages including security updates, bug
+                                    fixes, and feature enhancements to ensure your digital solutions remain optimal.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div
+                    class="faq-item group bg-brand-subtle border border-white/5 rounded-2xl overflow-hidden transition-all duration-300 hover:border-brand-accent/30">
+                    <button
+                        class="faq-trigger w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="text-lg font-bold text-white group-hover:text-brand-accent transition-colors">Can
+                            you help with Network Infrastructure for my office?</span>
+                        <div class="relative w-6 h-6 flex items-center justify-center">
+                            <i data-lucide="plus"
+                                class="faq-icon w-5 h-5 text-gray-400 transition-transform duration-300 ease-in-out group-hover:text-brand-accent"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content grid grid-rows-[0fr] transition-all duration-300 ease-in-out">
+                        <div class="overflow-hidden">
+                            <div
+                                class="p-6 pt-0 text-gray-400 text-sm leading-relaxed border-t border-white/5 mx-6 mt-2">
+                                <p>Absolutely. We design and implement robust network architectures including LAN/WAN
+                                    setup, access point configuration, and server management to ensure your business
+                                    stays connected.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div
+                    class="faq-item group bg-brand-subtle border border-white/5 rounded-2xl overflow-hidden transition-all duration-300 hover:border-brand-accent/30">
+                    <button
+                        class="faq-trigger w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="text-lg font-bold text-white group-hover:text-brand-accent transition-colors">Do
+                            you provide training or workshops for teams?</span>
+                        <div class="relative w-6 h-6 flex items-center justify-center">
+                            <i data-lucide="plus"
+                                class="faq-icon w-5 h-5 text-gray-400 transition-transform duration-300 ease-in-out group-hover:text-brand-accent"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content grid grid-rows-[0fr] transition-all duration-300 ease-in-out">
+                        <div class="overflow-hidden">
+                            <div
+                                class="p-6 pt-0 text-gray-400 text-sm leading-relaxed border-t border-white/5 mx-6 mt-2">
+                                <p>Yes, we conduct hands-on coding bootcamps and corporate training sessions focused on
+                                    upscaling technical skills in web, mobile technologies, and infrastructure
+                                    management.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <global-footer class="text-sm text-gray-500"></global-footer>
 
@@ -483,6 +827,51 @@
                     document.body.classList.remove("hovering");
                     if (window.gsap) gsap.to(trigger, { scale: 1, duration: 0.3 });
                 });
+            });
+
+            // FAQ Accordion Logic
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const trigger = item.querySelector('.faq-trigger');
+                const content = item.querySelector('.faq-content');
+                const icon = item.querySelector('.faq-icon');
+
+                if (trigger && content) {
+                    trigger.addEventListener('click', () => {
+                        const isOpen = item.classList.contains('active');
+
+                        // Optional: Close other expanded items (Accordion behavior)
+                        faqItems.forEach(otherItem => {
+                            if (otherItem !== item && otherItem.classList.contains('active')) {
+                                otherItem.classList.remove('active');
+                                const otherContent = otherItem.querySelector('.faq-content');
+                                const otherIcon = otherItem.querySelector('.faq-icon');
+
+                                if (otherContent) otherContent.style.gridTemplateRows = '0fr';
+                                if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+                                otherItem.classList.remove('border-brand-accent');
+                                otherItem.classList.add('border-white/5');
+                            }
+                        });
+
+                        if (isOpen) {
+                            // Close
+                            item.classList.remove('active');
+                            content.style.gridTemplateRows = '0fr';
+                            if (icon) icon.style.transform = 'rotate(0deg)';
+                            item.classList.remove('border-brand-accent');
+                            item.classList.add('border-white/5');
+                        } else {
+                            // Open
+                            item.classList.add('active');
+                            content.style.gridTemplateRows = '1fr';
+                            if (icon) icon.style.transform = 'rotate(45deg)';
+                            item.classList.remove('border-white/5');
+                            item.classList.add('border-brand-accent');
+                        }
+                    });
+                }
             });
 
             // Force remove preloader after 5 seconds just in case
