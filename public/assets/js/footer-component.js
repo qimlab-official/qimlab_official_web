@@ -23,7 +23,8 @@ const footerContent = `
                         <h4 class="text-white font-semibold mb-4">Products</h4>
                         <div class="flex flex-col gap-2">
                             <a href="https://mymet.qimlab.my" class="hover:text-brand-accent transition-colors hover-trigger">MyMET</a>
-                           
+                            <a href="https://project_huda.qimlab.my" class="hover:text-brand-accent transition-colors hover-trigger">project_huda</a>
+                            <a href="https://chpos.qimlab.my" class="hover:text-brand-accent transition-colors hover-trigger">chPOS</a>
                         </div>
                     </div>
              
