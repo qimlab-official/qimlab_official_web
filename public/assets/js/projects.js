@@ -4,53 +4,66 @@
  */
 const projects = [
     {
-        id: "corporate-client-portal",
-        title: "Corporate Client Portal",
-        category: "Web",
-        description: "A secure, high-performance portal for managing client assets and real-time data visualization.",
-        longDescription: "This Corporate Client Portal is designed to streamline asset management for large enterprises. It features a robust security framework, real-time data visualization using D3.js, and a comprehensive dashboard for tracking performance metrics. The system handles thousands of concurrent users and provides granular access control.",
-        tags: ["React", "Node.js", "PostgreSQL", "D3.js"],
-        icon: "monitor",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
-        link: "#",
-        repo: "#"
-    },
-    {
-        id: "hotel-network-upgrade",
-        title: "Hotel Network Upgrade",
-        category: "Infrastructure",
-        description: "Complete network overhaul for a 200-room luxury hotel, ensuring 100% coverage and high-speed guest access.",
-        longDescription: "We executed a complete network infrastructure overhaul for a luxury hotel. This involved replacing legacy hardware with modern Ubiquiti Unifi gear, installing fiber optic backbones between distribution frames, and conducting rigorous heat mapping to ensure 100% Wi-Fi coverage in all guest rooms and public areas. The result was a seamless, high-speed internet experience for guests and improved operational efficiency for staff.",
-        tags: ["Ubiquiti", "Fiber Optic", "Network Design", "VLANs"],
-        icon: "wifi",
-        image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2670&auto=format&fit=crop",
-        link: "#",
-        repo: null // Infrastructure projects might not have a public repo
-    },
-    {
-        id: "artisan-marketplace",
-        title: "Artisan Marketplace",
-        category: "Web",
-        description: "A custom e-commerce platform connecting local artisans with global buyers, featuring seamless payments.",
-        longDescription: "The Artisan Marketplace is a bespoke e-commerce solution built with Next.js and integrated with Stripe Connect. It empowers local artisans to create their own storefronts, manage inventory, and receive payments directly. The platform features a responsive design, advanced search capabilities with Algolia, and a user-friendly CMS for content management.",
-        tags: ["Next.js", "Stripe", "Tailwind CSS", "Algolia"],
-        icon: "shopping-cart",
-        image: "https://images.unsplash.com/photo-1472851294608-415522f96385?q=80&w=2670&auto=format&fit=crop",
-        link: "#",
-        repo: "#"
-    },
-    {
-        id: "logistics-analytics-engine",
-        title: "Logistics Analytics Engine",
+        id: "equipment-status-log",
+        title: "Equipment Status Log Application",
         category: "App/Web App",
-        description: "Processing millions of data points daily to optimize delivery routes and inventory for a logistics firm.",
-        longDescription: "Only accessible via authorized enterprise networks, this Logistics Analytics Engine leverages big data technologies to process and analyze delivery routes. Using Python and AWS utilities, it optimizes fleet fuel consumption and delivery times, resulting in a 15% reduction in operational costs. The system includes predictive modeling for inventory management.",
-        tags: ["Python", "AWS", "Machine Learning", "Docker"],
-        icon: "database",
-        image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2670&auto=format&fit=crop",
-        link: "#",
+        description: "The Equipment Status Log Application is a tool for managing equipment status for the Kibing Group (M) Sdn Bhd.",
+        longDescription: "This Equipment Status Log Application is designed to streamline asset management for Kibing Group (M) Sdn Bhd. It features a robust security framework, real-time data visualization using D3.js, and a comprehensive dashboard for tracking performance metrics. The system handles thousands of concurrent users and provides granular access control.",
+        tags: ["Flutter", "Node.js", "Google Cloud", "reCAPTCHA"],
+        icon: "list-todo",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+        link: "https://equipment-status-log.web.app/",
         repo: "#"
     },
+    {
+        id: "campus-hub",
+        title: "Campus Hub",
+        category: "App/Web App",
+        description: "Campus Hub is a secure network infrastructure for a university campus.",
+        longDescription: "Campus Hub is designed to streamline asset management for large enterprises. It features a robust security framework, real-time data visualization using D3.js, and a comprehensive dashboard for tracking performance metrics. The system handles thousands of concurrent users and provides granular access control.",
+        tags: ["Flutter", "Node.js", "Firebase", "Cloudflare", "Google Cloud"],
+        icon: "blocks",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+        link: "https://campushub.my",
+        repo: "#"
+    },
+    {
+        id: "mymet",
+        title: "MyMET",
+        category: "App/Web App",
+        description: "MyMET is a comprehensive environmental dashboard with estimated installed across more than 10 countries.",
+        longDescription: "MyMET is designed to streamline asset management for large enterprises. It features a robust security framework, real-time data visualization using D3.js, and a comprehensive dashboard for tracking performance metrics. The system handles thousands of concurrent users and provides granular access control.",
+        tags: ["Flutter", "Node.js", "Firebase", "Cloudflare", "APIs"],
+        icon: "layout-panel-left",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+        link: "https://dev.qimlab.my/mymet",
+        repo: "#"
+    },
+    {
+        id: "selia-plus",
+        title: "SELIA+",
+        category: "Web",
+        description: "SELIA+ is a ",
+        longDescription: "Pengembara Nomad is designed to streamline asset management for large enterprises. It features a robust security framework, real-time data visualization using D3.js, and a comprehensive dashboard for tracking performance metrics. The system handles thousands of concurrent users and provides granular access control.",
+        tags: ["Flutter", "TensorFlow", "Node.js", "Firebase", "Google Cloud", "APIs"],
+        icon: "panels-top-left",
+        image: "assets/img/pengembara-nomad.png",
+        link: "https://www.pengembaranomad.com.my",
+        repo: "#"
+    },
+    {
+        id: "pengembara-nomad",
+        title: "Pengembara Nomad",
+        category: "Web",
+        description: "Pengembara Nomad is a website for the Malaysian Ministry of Youth and Sports.",
+        longDescription: "Pengembara Nomad is designed to streamline asset management for large enterprises. It features a robust security framework, real-time data visualization using D3.js, and a comprehensive dashboard for tracking performance metrics. The system handles thousands of concurrent users and provides granular access control.",
+        tags: ["Exabyte", "Wix"],
+        icon: "panels-top-left",
+        image: "assets/img/pengembara-nomad.png",
+        link: "https://www.pengembaranomad.com.my",
+        repo: "#"
+    },
+
 ];
 
 /**

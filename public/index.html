@@ -4,7 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qim Lab | Digital Solutions & Network Infrastructure</title>
+    <title>Qim Lab | Dev</title>
+
+    <meta
+        content="Qim Lab | Dev - Your trusted development partner for innovative SaaS solutions, mobile apps, website, software, and other full-stack product."
+        name="description">
+    <meta content="Qim Lab, Dev, MyMET, project_iman, App, Software, Website, Mobile App" name="keywords">
+    <meta name="robots" content="index, follow">
+
+    <!-- Social Media Tag -->
+    <meta property="og:title" content="Qim Lab | Dev">
+    <meta property="og:description"
+        content="Qim Lab | Dev - Your trusted development partner for innovative SaaS solutions, mobile apps, website, software, and other full-stack product.">
+    <meta property="og:image" content="https://dev.qimlab.my/assets/img/logo/icon-512.png">
+    <meta property="og:url" content="https://dev.qimlab.my">
+    <meta property="og:type" content="website">
+
+    <!-- Favicons -->
+    <link href="assets/img/logo/icon-512.png" rel="icon">
+    <link href="assets/img/logo/apple-touch-icon.png" rel="apple-touch-icon">
+
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -98,8 +117,8 @@
         /* Grid Background */
         .bg-grid {
             background-size: 40px 40px;
-            mask-image: linear-gradient(to bottom, transparent, 10%, black, 90%, transparent);
             -webkit-mask-image: linear-gradient(to bottom, transparent, 5%, black, 95%, transparent);
+            mask-image: linear-gradient(to bottom, transparent, 10%, black, 90%, transparent);
         }
 
         /* Utilities */
@@ -145,7 +164,8 @@
     <!-- Preloader -->
     <div class="preloader">
         <div class="text-4xl font-mono font-bold tracking-tighter">
-            <span class="text-brand-accent">&lt;</span>QIM LAB<span class="text-brand-accent">/&gt;</span>
+            <span class="text-brand-accent">&lt;</span>DEV<span class="text-brand-accent">.</span>QIMLAB<span
+                class="text-brand-accent">/&gt;</span>
         </div>
     </div>
 
@@ -157,7 +177,7 @@
     <nav
         class="fixed top-0 w-full z-50 mix-blend-difference px-6 py-6 flex justify-between items-center backdrop-blur-sm bg-black/20 border-b border-white/5">
         <a href="index.html" class="text-2xl font-bold font-mono hover-trigger" data-cursor="link">
-            QIM<span class="text-brand-accent">.</span>LAB
+            DEV<span class="text-brand-accent">.</span>QIMLAB
         </a>
 
         <div class="hidden md:flex gap-8 text-sm font-medium tracking-widest uppercase">
@@ -167,7 +187,7 @@
             <a href="projects.html" class="hover:text-brand-accent transition-colors hover-trigger">Projects</a>
         </div>
 
-        <button id="mobile-menu-btn" class="md:hidden text-white hover-trigger">
+        <button id="mobile-menu-btn" class="md:hidden text-white hover-trigger" aria-label="Open Menu" title="Open Menu">
             <i data-lucide="menu"></i>
         </button>
     </nav>
@@ -175,7 +195,7 @@
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu"
         class="fixed inset-0 bg-black/95 backdrop-blur-xl z-[60] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
-        <button id="close-menu-btn" class="absolute top-6 right-6 text-white hover:text-brand-accent transition-colors">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white hover:text-brand-accent transition-colors" aria-label="Close Menu" title="Close Menu">
             <i data-lucide="x" class="w-8 h-8"></i>
         </button>
 

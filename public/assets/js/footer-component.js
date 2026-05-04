@@ -22,9 +22,9 @@ const footerContent = `
                     <div class="flex flex-col mr-12">
                         <h4 class="text-white font-semibold mb-4">Products</h4>
                         <div class="flex flex-col gap-2">
-                            <a href="https://mymet.qimlab.my" class="hover:text-brand-accent transition-colors hover-trigger">MyMET</a>
-                            <a href="https://project_huda.qimlab.my" class="hover:text-brand-accent transition-colors hover-trigger">project_huda</a>
-                            <a href="https://chpos.qimlab.my" class="hover:text-brand-accent transition-colors hover-trigger">chPOS</a>
+                            <a href="https://dev.qimlab.my/mymet" class="hover:text-brand-accent transition-colors hover-trigger">MyMET</a>
+                            <a href="https://dev.qimlab.my/project_iman" class="hover:text-brand-accent transition-colors hover-trigger">project_iman</a>
+                            <a href="https://campushub.my" class="hover:text-brand-accent transition-colors hover-trigger">Campus Hub</a>
                         </div>
                     </div>
              
@@ -53,7 +53,7 @@ const footerContent = `
                     <div class="flex flex-col">
                         <h4 class="text-white font-semibold mb-4">Contact Us</h4>
                         <div class="flex flex-col gap-2">
-                            <a href="mailto:qimlab.official@gmail.com" class="hover:text-brand-accent transition-colors hover-trigger">Email</a>
+                            <a href="mailto:contact@qimlab.my" class="hover:text-brand-accent transition-colors hover-trigger">Email</a>
                             <a href="https://wa.me/60105044177" class="hover:text-brand-accent transition-colors hover-trigger">WhatsApp</a>
                             <a href="https://cal.com/qim-lab" class="hover:text-brand-accent transition-colors hover-trigger">Free Consultation</a>
                         </div>

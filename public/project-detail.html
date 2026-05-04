@@ -4,7 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Details - Qim Lab</title>
+    <title>Qim Lab | Project Details</title>
+
+    <meta content="Qim Lab | Dev - Project Details" name="description">
+    <meta content="Qim Lab, Dev, MyMET, project_iman, App, Software, Website, Mobile App" name="keywords">
+    <meta name="robots" content="index, follow">
+
+    <!-- Social Media Tag -->
+    <meta property="og:title" content="Qim Lab | Project Details">
+    <meta property="og:description" content="Qim Lab | Dev - Project Details">
+    <meta property="og:image" content="https://dev.qimlab.my/assets/img/logo/icon-512.png">
+    <meta property="og:url" content="https://dev.qimlab.my">
+    <meta property="og:type" content="website">
+
+    <!-- Favicons -->
+    <link href="assets/img/logo/icon-512.png" rel="icon">
+    <link href="assets/img/logo/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -97,8 +112,8 @@
         /* Grid Background */
         .bg-grid {
             background-size: 40px 40px;
-            mask-image: linear-gradient(to bottom, transparent, 10%, black, 90%, transparent);
             -webkit-mask-image: linear-gradient(to bottom, transparent, 5%, black, 95%, transparent);
+            mask-image: linear-gradient(to bottom, transparent, 10%, black, 90%, transparent);
         }
 
         /* Utilities */
@@ -139,7 +154,8 @@
     <!-- Preloader -->
     <div class="preloader">
         <div class="text-4xl font-mono font-bold tracking-tighter">
-            <span class="text-brand-accent">&lt;</span>QIM LAB<span class="text-brand-accent">/&gt;</span>
+            <span class="text-brand-accent">&lt;</span>DEV<span class="text-brand-accent">.</span>QIMLAB<span
+                class="text-brand-accent">/&gt;</span>
         </div>
     </div>
 
@@ -161,7 +177,8 @@
             <a href="projects.html" class="text-brand-accent transition-colors hover-trigger">Projects</a>
         </div>
 
-        <button id="mobile-menu-btn" class="md:hidden text-white hover-trigger">
+        <button id="mobile-menu-btn" class="md:hidden text-white hover-trigger" aria-label="Open Menu"
+            title="Open Menu">
             <i data-lucide="menu"></i>
         </button>
     </nav>
@@ -169,7 +186,8 @@
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu"
         class="fixed inset-0 bg-black/95 backdrop-blur-xl z-[60] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
-        <button id="close-menu-btn" class="absolute top-6 right-6 text-white hover:text-brand-accent transition-colors">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white hover:text-brand-accent transition-colors"
+            aria-label="Close Menu" title="Close Menu">
             <i data-lucide="x" class="w-8 h-8"></i>
         </button>
 
@@ -380,7 +398,7 @@
                                 <h3 class="text-lg font-bold mb-6 font-mono text-white">PROJECT LINKS</h3>
                                 <div class="space-y-4">
                                     ${project.link && project.link !== '#' ? `
-                                        <a href="${project.link}" target="_blank" class="flex items-center justify-between p-4 rounded-xl bg-brand-accent text-black font-bold hover:bg-white transition-all group">
+                                        <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 rounded-xl bg-brand-accent text-black font-bold hover:bg-white transition-all group">
                                             <span>Visit Live Site</span>
                                             <i data-lucide="external-link" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
                                         </a>
@@ -392,7 +410,7 @@
                                     `}
                                     
                                     ${project.repo && project.repo !== '#' ? `
-                                        <a href="${project.repo}" target="_blank" class="flex items-center justify-between p-4 rounded-xl border border-white/20 text-white font-bold hover:border-brand-accent hover:text-brand-accent transition-all group bg-black/20">
+                                        <a href="${project.repo}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 rounded-xl border border-white/20 text-white font-bold hover:border-brand-accent hover:text-brand-accent transition-all group bg-black/20">
                                             <span>View Source Code</span>
                                             <i data-lucide="github" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
                                         </a>
@@ -408,7 +426,7 @@
                              <div class="p-6 rounded-2xl bg-brand-subtle border border-white/10">
                                 <h3 class="text-lg font-bold mb-4 font-mono text-brand-accent">INTERESTED?</h3>
                                 <p class="text-gray-400 text-sm mb-6">Need a similar solution for your business? Let's discuss how we can help you.</p>
-                                <a href="mailto:qimlab.official@gmail.com" class="inline-flex items-center gap-2 text-white hover:text-brand-accent transition-colors font-bold text-sm tracking-widest hover-trigger">
+                                <a href="mailto:contact@qimlab.my" class="inline-flex items-center gap-2 text-white hover:text-brand-accent transition-colors font-bold text-sm tracking-widest hover-trigger">
                                     START A CONVERSATION <i data-lucide="arrow-right" class="w-4 h-4"></i>
                                 </a>
                             </div>
