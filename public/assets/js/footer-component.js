@@ -58,8 +58,6 @@ const footerContent = `
                             <a href="https://cal.com/qim-lab" class="hover:text-brand-accent transition-colors hover-trigger">Free Consultation</a>
                         </div>
                     </div>
-
-                    
                 </div>
             </div>
         </div>
