@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>MyMET | Policies</title>
+
+    <meta
+        content="MyMET's policies, including our commitment to data privacy, terms of service for app usage, and the external data sources for weather, earthquake, and water level alerts."
+        name="description">
+    <meta content="earthquake, space, weather" name="keywords">
+    <meta name="robots" content="index, follow">
+
+    <!-- Social Media Tag -->
+    <meta property="og:title" content="MyMET | Policies">
+    <meta property="og:description"
+        content="MyMET's policies, including our commitment to data privacy, terms of service for app usage, and the external data sources for weather, earthquake, and water level alerts.">
+    <meta property="og:image" content="https://mymet.qimlab.my/assets/icons/tv_banner.png">
+    <meta property="og:url" content="https://mymet.qimlab.my/policies.html">
+    <meta property="og:type" content="website">
+
+    <!-- Favicons -->
+    <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0312;
+            /* slate-950 */
+            color: #e5e7eb;
+            /* gray-200 */
+            overflow-x: hidden;
+        }
+
+        #spotlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            /* Allows clicking through it */
+            transition: background 0.1s linear;
+            /* Smooths the movement slightly */
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #ffffff, #ad60fa);
+            /* white to blue-400 */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-card {
+            background: rgba(30, 15, 42, 0.6);
+            /* slate-900 with 60% opacity */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .glass-card-v2 {
+            background: rgba(30, 15, 42, 0.6);
+            /* slate-900 with 60% opacity */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            /* subtle border */
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .policy-content h1 {
+            font-size: 2.25rem;
+            /* 3xl */
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            line-height: 2.5rem;
+        }
+
+        .policy-content h2 {
+            font-size: 1.5rem;
+            /* 2xl */
+            font-weight: 600;
+            color: #fff;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(67, 51, 85, 0.5);
+            /* slate-700 */
+            padding-bottom: 0.5rem;
+        }
+
+        .policy-content p {
+            color: #d1d5db;
+            /* gray-300 */
+            margin-bottom: 1rem;
+            line-height: 1.75;
+        }
+
+        .policy-content a {
+            color: #93c5fd;
+            /* blue-400 */
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .policy-content a:hover {
+            color: #60a5fa;
+            /* blue-500 */
+        }
+
+        .policy-content ul {
+            list-style-type: disc;
+            list-style-position: inside;
+            color: #d1d5db;
+            /* gray-300 */
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+        }
+
+        .policy-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.75;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <div id="spotlight"></div>
+
+    <div class="relative z-10">
+
+        <header class="glass-card fixed top-0 left-0 right-0 z-50">
+            <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0">
+                        <a href="index.html" class="flex items-center text-2xl font-bold text-white tracking-wider">
+                            <!-- Using a placeholder logo -->
+                            <img src="assets/ic_launcher.webp" class="h-10 w-10 mr-2 text-blue-400" alt="MyMET Logo">
+                            MyMET
+                        </a>
+                    </div>
+
+                    <div class="hidden md:flex md:items-center md:space-x-8">
+                        <a href="index.html"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="about.html"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+
+                        <a href="faq.html"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">FAQs</a>
+                        <a href=""
+                            class="text-white bg-gray-700/50 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                            aria-current="page">Policies</a>
+                        <a href="https://play.google.com/store/apps/details?id=com.qimlab.my_met"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Download
+                            Now</a>
+
+                    </div>
+
+                    <div class="md:hidden">
+                        <button id="menu-btn" type="button"
+                            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                            <span class="sr-only">Open main menu</span>
+                            <svg id="menu-icon-open" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                            <svg id="menu-icon-close" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <div id="mobile-menu" class="hidden md:hidden glass-card">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="index.html"
+                        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                    <a href="about.html"
+                        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+
+                    <a href="faq.html"
+                        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">FAQs</a>
+                    <a href="" class="text-white bg-gray-700/50 block px-3 py-2 rounded-md text-base font-medium"
+                        aria-current="page">Policies</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.qimlab.my_met"
+                        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Download
+                        Now</a>
+
+                </div>
+            </div>
+        </header>
+
+        <main class="pt-16">
+            <section class="relative min-h-screen py-20 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="absolute inset-0 overflow-hidden -z-10">
+                    <div
+                        class="absolute -top-1/4 left-1/4 w-1/2 h-1/2 bg-purple-600 rounded-full filter blur-3xl opacity-20 animate-pulse">
+                    </div>
+                    <div
+                        class="absolute bottom-0 right-0 w-1/3 h-1/3 bg-purple-500 rounded-full filter blur-3xl opacity-10 animate-pulse-slow">
+                    </div>
+                </div>
+
+                <div class="glass-card-v2 rounded-xl p-8 md:p-12 lg:p-16 fade-in-up policy-content">
+                    <h1>MyMET Policies</h1>
+
+                    <p>Last Updated: October 30, 2025</p>
+
+                    <p>Your privacy and trust are important to us. This document outlines our policies regarding data
+                        collection, usage, and your rights as a user of our application.</p>
+
+                    <h2>Privacy Policy</h2>
+                    <p>Qim Lab ("us", "we", or "our") operates the MyMET mobile application (the "Service"). This page
+                        informs you of our policies regarding the collection, use, and disclosure of personal data when
+                        you use our Service and the choices you have associated with that data.</p>
+                    <p>We use your data to provide and improve the Service. By using the Service, you agree to the
+                        collection and use of information in accordance with this policy. Unless otherwise defined in
+                        this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms
+                        and Conditions.</p>
+
+                    <h3>Information Collection and Use</h3>
+                    <p>We collect several different types of information for various purposes to provide and improve our
+                        Service to you.</p>
+                    <ul>
+                        <li><strong>Personal Data:</strong> While using our Service, we may ask you to provide us with
+                            certain personally identifiable information that can be used to contact or identify you
+                            ("Personal Data"). This may include, but is not limited to, email address and location data.
+                        </li>
+                        <li><strong>Usage Data:</strong> We may also collect information on how the Service is accessed
+                            and used ("Usage Data"). This Usage Data may include information such as your device's
+                            Internet Protocol address (e.g., IP address), browser type, browser version, the pages of
+                            our Service that you visit, the time and date of your visit, the time spent on those pages,
+                            unique device identifiers, and other diagnostic data.</li>
+                        <li><strong>Location Data:</strong> We may use and store information about your location if you
+                            give us permission to do so (“Location Data”). We use this data to provide features of our
+                            Service, such as location-specific weather alerts and earthquake notifications.</li>
+                    </ul>
+
+                    <h2>Terms of Service</h2>
+                    <p>Please read these Terms of Service ("Terms", "Terms of Service") carefully before using the MyMET
+                        mobile application (the "Service") operated by Qim Lab ("us", "we", or "our").</p>
+                    <p>Your access to and use of the Service is conditioned on your acceptance of and compliance with
+                        these Terms. These Terms apply to all visitors, users, and others who access or use the Service.
+                    </p>
+
+
+                    <h3>Disclaimer</h3>
+                    <p>The data provided by the Service is for informational purposes only. While we strive to provide
+                        accurate and timely information, we make no warranties or representations as to the accuracy,
+                        completeness, or reliability of any data. The Service should not be used as a sole source for
+                        making decisions in life-threatening situations. Always consult official emergency services and
+                        local authorities.</p>
+
+                    <h2>Data Usage and Sources</h2>
+                    <p>MyMET aggregates data from various official public sources. We do not generate this primary data
+                        ourselves but present it in a unified and accessible format. Our Service is dependent on the
+                        availability and accuracy of these external data feeds.</p>
+                    <ul>
+                        <li><strong>Earthquake Data:</strong> Sourced from the U.S. Geological Survey (USGS) and the
+                            Euro-Mediterranean
+                            Seismological Centre (EMSC)</li>
+                        <li><strong>Volcano Data:</strong> Sourced from the U.S. Geological Survey (USGS)</li>
+                        <li><strong>Weather and Weather Alerts:</strong> Sourced from the National Oceanic and
+                            Atmospheric Administration
+                            (NOAA),
+                            MET Malaysia, Malaysia DOSM and MET Norway (Meteorologisk institutt)</li>
+                        <li><strong>Satellite Data:</strong> Sourced from the CelesTrak</li>
+                        <li><strong>3D Animation Skematic:</strong> Sourced from the Earth Nullschool</li>
+                        <li><strong>Water Level Data:</strong> Sourced from the PublicInfoBanjir</li>
+                        <li><strong>Space Weather Data:</strong> Sourced from the National Aeronautics and Space
+                            Administration (NASA)
+                            and the NOAA Space Weather Prediction Center</li>
+                    </ul>
+                    <p>We are not responsible for any inaccuracies, delays, or interruptions in the data provided by
+                        these third-party sources. Use of this data is at your own risk.</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <div id="footer"></div>
+
+    </div> <!-- End Main Content Wrapper -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const spotlight = document.getElementById('spotlight');
+            if (spotlight) {
+                document.addEventListener('mousemove', (e) => {
+                    spotlight.style.background = `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, rgba(173, 96, 250, 0.1), transparent 30%)`;
+                });
+            }
+
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const iconOpen = document.getElementById('menu-icon-open');
+            const iconClose = document.getElementById('menu-icon-close');
+
+            if (menuBtn && mobileMenu && iconOpen && iconClose) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    iconOpen.classList.toggle('hidden');
+                    iconOpen.classList.toggle('block');
+                    iconClose.classList.toggle('hidden');
+                    iconClose.classList.toggle('block');
+                });
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            });
+
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+
+        });
+    </script>
+    <script>
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer").innerHTML = data;
+            })
+            .catch(error => console.error("Error loading footer:", error));
+    </script>
+
+</body>
+
+</html>
