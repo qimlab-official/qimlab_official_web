@@ -11,7 +11,7 @@ const projects = [
         longDescription: "This Equipment Status Log Application is designed to streamline asset management for Kibing Group (M) Sdn Bhd. It features a robust security framework, real-time data visualization using D3.js, and a comprehensive dashboard for tracking performance metrics. The system handles thousands of concurrent users and provides granular access control.",
         tags: ["Flutter", "Node.js", "Google Cloud", "reCAPTCHA"],
         icon: "list-todo",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+        image: "assets/img/project/digital_check_sheet.png",
         link: "https://equipment-status-log.web.app/",
         repo: "#"
     },
@@ -23,7 +23,7 @@ const projects = [
         longDescription: "Campus Hub is designed to streamline asset management for large enterprises. It features a robust security framework, real-time data visualization using D3.js, and a comprehensive dashboard for tracking performance metrics. The system handles thousands of concurrent users and provides granular access control.",
         tags: ["Flutter", "Node.js", "Firebase", "Cloudflare", "Google Cloud"],
         icon: "blocks",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+        image: "assets/img/project/campus_hub.webp",
         link: "https://campushub.my",
         repo: "#"
     },
@@ -35,19 +35,19 @@ const projects = [
         longDescription: "MyMET is designed to streamline asset management for large enterprises. It features a robust security framework, real-time data visualization using D3.js, and a comprehensive dashboard for tracking performance metrics. The system handles thousands of concurrent users and provides granular access control.",
         tags: ["Flutter", "Node.js", "Firebase", "Cloudflare", "APIs"],
         icon: "layout-panel-left",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+        image: "assets/img/project/mymet.png",
         link: "https://dev.qimlab.my/mymet",
         repo: "#"
     },
     {
         id: "selia-plus",
         title: "SELIA+",
-        category: "Web",
+        category: "App/Web App",
         description: "SELIA+ is a ",
         longDescription: "Pengembara Nomad is designed to streamline asset management for large enterprises. It features a robust security framework, real-time data visualization using D3.js, and a comprehensive dashboard for tracking performance metrics. The system handles thousands of concurrent users and provides granular access control.",
         tags: ["Flutter", "TensorFlow", "Node.js", "Firebase", "Google Cloud", "APIs"],
         icon: "panels-top-left",
-        image: "assets/img/pengembara-nomad.png",
+        image: "assets/img/project/selia_plus.png",
         link: "https://www.pengembaranomad.com.my",
         repo: "#"
     },
@@ -59,8 +59,20 @@ const projects = [
         longDescription: "Pengembara Nomad is designed to streamline asset management for large enterprises. It features a robust security framework, real-time data visualization using D3.js, and a comprehensive dashboard for tracking performance metrics. The system handles thousands of concurrent users and provides granular access control.",
         tags: ["Exabyte", "Wix"],
         icon: "panels-top-left",
-        image: "assets/img/pengembara-nomad.png",
+        image: "assets/img/project/pengembara-nomad.png",
         link: "https://www.pengembaranomad.com.my",
+        repo: "#"
+    },
+    {
+        id: "project-iman",
+        title: "project_iman (Coming Soon)",
+        category: "App/Web App",
+        description: "Project iman is a comprehensive AI platform designed to support early detection of congenital heart defects.",
+        longDescription: "Project iman is designed to streamline asset management for large enterprises. It features a robust security framework, real-time data visualization using D3.js, and a comprehensive dashboard for tracking performance metrics. The system handles thousands of concurrent users and provides granular access control.",
+        tags: ["Flutter", "TensorFlow", "Node.js", "Firebase", "Google Cloud", "APIs"],
+        icon: "panels-top-left",
+        image: "assets/img/project/project_iman.png",
+        link: "https://dev.qimlab.my/project_iman",
         repo: "#"
     },
 
